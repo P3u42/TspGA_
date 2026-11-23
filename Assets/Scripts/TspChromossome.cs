@@ -1,0 +1,62 @@
+using UnityEngine;
+using GeneticSharp.Domain.Chromosomes;
+using GeneticSharp.Domain.Randomizations;
+using System;
+using Unity.Mathematics;
+
+public class TspChromossome : ChromosomeBase
+{
+
+    private readonly int m_numberOfCities;
+
+    public TspChromossome(int numberOfCities) : base(numberOfCities)
+    {
+        m_numberOfCities = numberOfCities;
+        var citiesIndexes = RandomizationProvider.Current.GetUniqueInts(numberOfCities,0,numberOfCities);
+    
+        for(int i = 0; i < numberOfCities; i++)
+        {
+            ReplaceGene(i,new Gene(citiesIndexes[i]));
+        }
+    
+    
+    
+    }
+    public Double Distance
+    {
+        get;
+        internal set;
+    }
+
+    public override Gene GenerateGene(int geneIndex)
+    {
+        return new Gene(RandomizationProvider.Current.GetInt(0,m_numberOfCities));
+    }
+
+    public override IChromosome CreateNew()
+    {
+        return new TspChromossome(m_numberOfCities);
+    }
+
+    public  override IChromosome Clone()
+    {
+        var clone = base.Clone() as TspChromossome;
+        clone.Distance = Distance;
+        return clone;
+    }
+
+
+
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
