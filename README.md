@@ -1,7 +1,7 @@
 TSP Genetic Algorithm | Unity
 
+<img width="800" height="450" alt="TspGif" src="https://github.com/user-attachments/assets/bbc0e0cd-5fc4-4988-a65a-6e70d24684df" />
 
-<img width="800" height="422" alt="TspGif" src="https://github.com/user-attachments/assets/7f8a6297-8b52-4b41-80ba-864bbe0c96b8" />
 
 
 An implementation of the Traveling Salesperson Problem (TSP) using Genetic Algorithms in Unity, powered by the GeneticSharp library.
